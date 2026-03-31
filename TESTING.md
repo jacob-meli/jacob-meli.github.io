@@ -1,9 +1,11 @@
-# My Testing Checklist
+# Testing Checklist
 
-1. Verified that https://jacob-meli.github.io loads correctly.
-2. Confirmed there are no broken links.
-3. Pasted the GitHub profile link into search engine to ensure it works.
-4. Tested the site on my mobile phone.
-5. Checked readability on my desktop screen.
-6. Verified that all required sections are present.
-7. Confirmed repository contains README.md, DESIGN.md, and TESTING.md.
+1. Verified that the main site loads at the correct GitHub Pages URL.
+2. Confirmed that the navigation bar works between index.html and pong.html.
+3. Checked that the Pong game page loads without errors.
+4. Tested player paddle movement using W and S keys.
+5. Verified that the ball moves and bounces off walls and paddles.
+6. Confirmed the AI paddle responds to the ball.
+7. Checked for any broken links on both pages.
+8. Tested the site layout on a desktop browser.
+9. Verified consistent styling across both pages.
