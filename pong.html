@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pong Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Jacob Meli</h1>
+    <p>Intro to AI</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="pong.html">Play Pong</a>
+</nav>
+
+<div class="container">
+
+<section>
+    <h2>Pong Game</h2>
+    <p>Use W/S keys to move your paddle.</p>
+
+    <canvas id="gameCanvas" width="600" height="400" style="background:black; display:block; margin:auto;"></canvas>
+</section>
+
+</div>
+
+<script>
+// BASIC PONG GAME
+
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+// Ball
+let x = 300;
+let y = 200;
+let dx = 3;
+let dy = 3;
+let radius = 8;
+
+// Player paddle
+let paddleHeight = 80;
+let playerY = 160;
+
+// AI paddle
+let aiY = 160;
+
+// Controls
+let upPressed = false;
+let downPressed = false;
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "w") upPressed = true;
+    if (e.key === "s") downPressed = true;
+});
+
+document.addEventListener("keyup", (e) => {
+    if (e.key === "w") upPressed = false;
+    if (e.key === "s") downPressed = false;
+});
+
+function drawRect(x, y, w, h) {
+    ctx.fillStyle = "#00bfff";
+    ctx.fillRect(x, y, w, h);
+}
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#00bfff";
+    ctx.fill();
+    ctx.closePath();
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Move player
+    if (upPressed && playerY > 0) playerY -= 5;
+    if (downPressed && playerY < canvas.height - paddleHeight) playerY += 5;
+
+    // Move AI
+    if (aiY + paddleHeight / 2 < y) aiY += 3;
+    else aiY -= 3;
+
+    // Move ball
+    x += dx;
+    y += dy;
+
+    // Wall bounce
+    if (y + radius > canvas.height || y - radius < 0) dy *= -1;
+
+    // Paddle collision
+    if (x < 20 && y > playerY && y < playerY + paddleHeight) dx *= -1;
+    if (x > canvas.width - 20 && y > aiY && y < aiY + paddleHeight) dx *= -1;
+
+    // Reset if missed
+    if (x < 0 || x > canvas.width) {
+        x = 300;
+        y = 200;
+    }
+
+    drawBall();
+    drawRect(10, playerY, 10, paddleHeight);
+    drawRect(canvas.width - 20, aiY, 10, paddleHeight);
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
