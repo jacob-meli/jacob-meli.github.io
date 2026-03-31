@@ -1,22 +1,36 @@
-# My Design Plan
+# Design Plan
 
-## The Page Structure
+ # Page Structure
 
-- A Header (Name + Course Title)
-- An About Section
-- A Projects Section
-- A GitHub Profile Link
+The website now consists of two pages:
 
-## My Layout Choice
+- Home page
+  - Header with name and course title
+  - Navigation bar
+  - About section
+  - Projects section
 
-I chose to add a single page layout to keep the site simple and easy to navigate.
-Each section is clearly separated using headings.
-The layout is centered with a maximum width to make it easier to read on both desktop and mobile.
+- Pong Game page
+  - Header and navigation 
+  - Game section with instructions
+  - Canvas element for the interactive Pong game
 
-## My Design Strategy
+# Layout Choices
 
-I organized the website into clearly labeled sections so readers can quickly
-understand who I am and why this site was made. A single page structure
-makes things less complex and ensures the site is easy to maintain and expand
-in the next two projects. The minimal styling keeps the design professionally focused
-while remaining readable on smaller screens.
+I used a multi page layout to separate general information from the interactive feature
+Both pages share a consistent design using a single CSS file 
+A navigation bar is included on both pages so users can easily move between them
+
+The layout is centered with a maximum width for readability while spacing is used
+to separate sections clearly
+
+# Design 
+
+I organized the site to keep the main page focused on information about me and my projects
+while placing the interactive feature on a separate page to avoid clutter
+
+The black background with blue accents was chosen to create a modern
+appearance
+
+Using a shared CSS file ensures consistency across pages and makes the site easier
+to maintain and update
